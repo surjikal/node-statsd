@@ -5,10 +5,12 @@ is a port of node-statsd.
 
 It will let you fire stats at your StatsD server.
 
-    > StatsD = (require 'node-statsd').StatsD
-    > statsd = new StatsD 'localhost', 8125
-    > statsd.gauge 'test', 51
-    > statsd.gaugeDelta 'test', 33
+```coffeescript
+> StatsD = (require 'node-statsd').StatsD
+> statsd = new StatsD 'localhost', 8125
+> statsd.gauge 'test', 51
+> statsd.gaugeDelta 'test', 33
+```
 
 Support for sampling has been removed.
 
