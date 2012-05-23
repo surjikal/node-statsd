@@ -1,19 +1,17 @@
-# node-statsd
+# statsd.coffee
 
-A node.js client for [Etsy](http://etsy.com)'s [StatsD](https://github.com/etsy/statsd) server.
+A client written for [Etsy](http://etsy.com)'s [StatsD](https://github.com/etsy/statsd) server. It
+is a port of node-statsd.
 
-This client will let you fire stats at your StatsD server from a node.js application.
+It will let you fire stats at your StatsD server.
 
-    % npm install node-statsd
-    % node
-    > var StatsD = require('node-statsd').StatsD
-    > c = new StatsD('example.org',8125)
-    { host: 'example.org', port: 8125 }
-    > c.increment('node_test.int')
-    > c.decrement('node_test.int')
-    > c.timing('node_test.some_service.task.time', 500) // time in millis
+    > StatsD = (require 'node-statsd').StatsD
+    > statsd = new StatsD 'localhost', 8125
+    > statsd.gauge 'test', 51
+    > statsd.gaugeDelta 'test', 33
+
+Support for sampling has been removed.
 
 # License
 
 node-statsd is licensed under the MIT license.
-
